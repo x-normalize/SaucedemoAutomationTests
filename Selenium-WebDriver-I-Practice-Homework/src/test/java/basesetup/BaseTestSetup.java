@@ -57,6 +57,20 @@ public abstract class BaseTestSetup {
         }
     }
 
+    public static void authenticateWithUser(String username, String pass) {
+        WebElement usernameInput = driver.findElement(By.xpath("//input[@data-test='username']"));
+        usernameInput.sendKeys(username);
+
+        WebElement password = driver.findElement(By.xpath("//input[@data-test='password']"));
+        password.sendKeys(pass);
+
+        WebElement loginButton = driver.findElement(By.xpath("//input[@data-test='login-button']"));
+        loginButton.click();
+
+        WebElement inventoryPageTitle = driver.findElement(By.xpath("//div[@class='app_logo']"));
+        wait.until(ExpectedConditions.visibilityOf(inventoryPageTitle));
+    }
+
     protected void addBackpackAndTShirtToShoppingCart(BrowserType browserType) {
         startWithBrowser(browserType);
 
