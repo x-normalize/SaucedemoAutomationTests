@@ -20,7 +20,7 @@ public class LoginTests extends BaseTestSetup {
         // Configure wait
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-        // Navigate to Google.com
+        // Navigate to saucedemo.com
         driver.get(WWW_SAUCEDEMO_COM);
     }
 
