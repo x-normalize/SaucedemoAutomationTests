@@ -29,11 +29,8 @@ public abstract class BaseTestSetup {
 
     @AfterEach
     public void classTearDown() {
-
         resetAppState();
-
         driver.close();
-
     }
 
     @AfterAll

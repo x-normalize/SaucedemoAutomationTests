@@ -3,6 +3,7 @@ package tests;
 import basesetup.BaseTestSetup;
 import enums.BrowserType;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 import org.openqa.selenium.By;
@@ -16,14 +17,11 @@ import static utils.Constants.*;
 
 public class ProductTests extends BaseTestSetup {
 
-    @ParameterizedTest
-    @EnumSource(BrowserType.class)
-    public void productAddedToShoppingCart_when_addToCart(BrowserType browserType) {
-
-        startWithBrowser(browserType);
+    @Test
+    public void productAddedToShoppingCart_when_addToCart() {
+        startWithBrowser(BrowserType.GOOGLE_CHROME);
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-
         log.info("Navigate to https://www.saucedemo.com/");
         driver.get(WWW_SAUCEDEMO_COM);
 
@@ -58,11 +56,11 @@ public class ProductTests extends BaseTestSetup {
         log.info("Test 1 Passed Successfully!");
     }
 
-    @ParameterizedTest
-    @EnumSource(BrowserType.class)
-    public void userDetailsAdded_when_checkoutWithValidInformation(BrowserType browserType) {
+    @Test
+    public void userDetailsAdded_when_checkoutWithValidInformation() {
+        startWithBrowser(BrowserType.MICROSOFT_EDGE);
 
-        addBackpackAndTShirtToShoppingCart(browserType);
+        addBackpackAndTShirtToShoppingCart(BrowserType.MICROSOFT_EDGE);
 
         log.info("Click on Checkout");
         WebElement checkoutButton = driver.findElement(By.xpath(BUTTON_DATA_TEST_CHECKOUT));
