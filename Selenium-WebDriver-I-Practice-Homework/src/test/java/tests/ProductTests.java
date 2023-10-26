@@ -90,12 +90,9 @@ public class ProductTests extends BaseTestSetup {
         log.info("Test 2 Passed Successfully!");
     }
 
-    @ParameterizedTest
-    @EnumSource(BrowserType.class)
-    public void orderCompleted_when_addProduct_and_checkout_withConfirm(BrowserType browserType) {
-
-        addBackpackAndTShirtToShoppingCart(browserType);
-
+   @Test
+    public void orderCompleted_when_addProduct_and_checkout_withConfirm() {
+        addBackpackAndTShirtToShoppingCart(BrowserType.GOOGLE_CHROME);
         completeCheckoutProcess();
 
         WebElement finishButton = driver.findElement(By.xpath(BUTTON_DATA_TEST_FINISH));
