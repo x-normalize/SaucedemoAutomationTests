@@ -4,8 +4,6 @@ import basesetup.BaseTestSetup;
 import enums.BrowserType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.EnumSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -52,8 +50,6 @@ public class ProductTests extends BaseTestSetup {
 
         log.info("Assert Items and Prices");
         assertItemsAndPrices();
-
-        log.info("Test 1 Passed Successfully!");
     }
 
     @Test
@@ -70,12 +66,7 @@ public class ProductTests extends BaseTestSetup {
         assertCurrentPageUrl(USER_DETAILS_PAGE_URL, driver.getCurrentUrl());
 
         log.info("Fill Details");
-        WebElement firstNameInput = driver.findElement(By.xpath(FIRST_NAME));
-        firstNameInput.sendKeys("Yordan");
-        WebElement lastNameInput = driver.findElement(By.xpath(LAST_NAME));
-        lastNameInput.sendKeys("Nikolov");
-        WebElement postalCodeInput = driver.findElement(By.xpath(POSTAL_CODE));
-        postalCodeInput.sendKeys("7000");
+        fillDetailsForm();
 
         log.info("Click on Continue");
         WebElement continueButton = driver.findElement(By.xpath(INPUT_DATA_TEST_CONTINUE));
@@ -86,11 +77,9 @@ public class ProductTests extends BaseTestSetup {
 
         log.info("Assert Items");
         assertItems();
-
-        log.info("Test 2 Passed Successfully!");
     }
 
-   @Test
+    @Test
     public void orderCompleted_when_addProduct_and_checkout_withConfirm() {
         addBackpackAndTShirtToShoppingCart(BrowserType.GOOGLE_CHROME);
         completeCheckoutProcess();
@@ -99,14 +88,12 @@ public class ProductTests extends BaseTestSetup {
         finishButton.click();
 
         log.info("Assert Checkout complete page");
-        assertCurrentPageUrl("https://www.saucedemo.com/checkout-complete.html", driver.getCurrentUrl());
+        assertCurrentPageUrl(CHECKOUT_COMPLETE_HTML, driver.getCurrentUrl());
         log.info("Assert No Items");
         assertNoItems();
         log.info("Assert Complete Header Message");
         Assertions.assertEquals("Thank you for your order!",
                 driver.findElement(By.xpath(COMPLETE_HEADER)).getText(),
                 "Wrong complete header");
-
-        log.info("Test 3 Passed Successfully!");
     }
 }

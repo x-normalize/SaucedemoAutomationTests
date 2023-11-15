@@ -17,17 +17,13 @@ public class LoginTests extends BaseTestSetup {
     public static void beforeAllTests() {
         startWithBrowser(BrowserType.GOOGLE_CHROME);
 
-        // Configure wait
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-
-        // Navigate to saucedemo.com
         driver.get(WWW_SAUCEDEMO_COM);
     }
 
     @Test
     public void userAuthenticated_when_validCredentialsProvided() {
         authenticateWithUser("standard_user", "secret_sauce");
-
         assertCurrentPageUrl(INVENTORY_PAGE_URL, driver.getCurrentUrl());
 
     }

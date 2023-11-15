@@ -1,5 +1,6 @@
 package basesetup;
 
+import enums.BrowserType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterAll;
@@ -11,7 +12,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import enums.BrowserType;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -131,6 +131,15 @@ public abstract class BaseTestSetup {
         assertCurrentPageUrl(OVERVIEW_PAGE_URL, driver.getCurrentUrl());
 
         assertItems();
+    }
+
+    public static void fillDetailsForm() {
+        WebElement firstNameInput = driver.findElement(By.xpath(FIRST_NAME));
+        firstNameInput.sendKeys("Yordan");
+        WebElement lastNameInput = driver.findElement(By.xpath(LAST_NAME));
+        lastNameInput.sendKeys("Nikolov");
+        WebElement postalCodeInput = driver.findElement(By.xpath(POSTAL_CODE));
+        postalCodeInput.sendKeys("7000");
     }
 
     protected static void assertCurrentPageUrl(String expectedUrl, String currentUrl) {

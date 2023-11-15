@@ -9,6 +9,7 @@ public class Constants {
     public static final String SHOPPING_CART_PAGE_URL = "https://www.saucedemo.com/cart.html";
     public static final String USER_DETAILS_PAGE_URL = "https://www.saucedemo.com/checkout-step-one.html";
     public static final String OVERVIEW_PAGE_URL = "https://www.saucedemo.com/checkout-step-two.html";
+    public static final String CHECKOUT_COMPLETE_HTML = "https://www.saucedemo.com/checkout-complete.html";
     public static final String INPUT_DATA_TEST_USERNAME = "//input[@data-test='username']";
     public static final String INPUT_DATA_TEST_PASSWORD = "//input[@data-test='password']";
     public static final String LOGIN_BUTTON = "//input[@data-test='login-button']";
