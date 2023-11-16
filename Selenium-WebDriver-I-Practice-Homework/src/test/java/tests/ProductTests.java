@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static com.sun.activation.registries.LogSupport.log;
 import static utils.Constants.*;
 
 public class ProductTests extends BaseTestSetup {
@@ -19,8 +20,7 @@ public class ProductTests extends BaseTestSetup {
     public void productAddedToShoppingCart_when_addToCart() {
         startWithBrowser(BrowserType.GOOGLE_CHROME);
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        log.info("Navigate to https://www.saucedemo.com/");
+        log("Navigate to https://www.saucedemo.com/");
         driver.get(WWW_SAUCEDEMO_COM);
 
         WebElement usernameInput = wait.until(ExpectedConditions.visibilityOf(
@@ -35,20 +35,20 @@ public class ProductTests extends BaseTestSetup {
 
         assertCurrentPageUrl(INVENTORY_PAGE_URL, driver.getCurrentUrl());
 
-        log.info("Add Backpack and T-shirt to cart");
+        log("Add Backpack and T-shirt to cart");
         WebElement backpackAddToCardButton = driver.findElement(By.xpath(ADD_TO_CART_SAUCE_LABS_BACKPACK));
         backpackAddToCardButton.click();
         WebElement tShirtAddToCardButton = driver.findElement(By.xpath(ADD_TO_CART_SAUCE_LABS_BOLT_T_SHIRT));
         tShirtAddToCardButton.click();
 
-        log.info("Click on Shopping Cart");
+        log("Click on Shopping Cart");
         WebElement shoppingCartIcon = driver.findElement(By.xpath(SHOPPING_CART_LINK));
         shoppingCartIcon.click();
 
-        log.info("Assert the current URL");
+        log("Assert the current URL");
         assertCurrentPageUrl(SHOPPING_CART_PAGE_URL, driver.getCurrentUrl());
 
-        log.info("Assert Items and Prices");
+        log("Assert Items and Prices");
         assertItemsAndPrices();
     }
 
@@ -58,24 +58,24 @@ public class ProductTests extends BaseTestSetup {
 
         addBackpackAndTShirtToShoppingCart(BrowserType.MICROSOFT_EDGE);
 
-        log.info("Click on Checkout");
+        log("Click on Checkout");
         WebElement checkoutButton = driver.findElement(By.xpath(BUTTON_DATA_TEST_CHECKOUT));
         checkoutButton.click();
 
-        log.info("Assert Fill Contact Details Page");
+        log("Assert Fill Contact Details Page");
         assertCurrentPageUrl(USER_DETAILS_PAGE_URL, driver.getCurrentUrl());
 
-        log.info("Fill Details");
+        log("Fill Details");
         fillDetailsForm();
 
-        log.info("Click on Continue");
+        log("Click on Continue");
         WebElement continueButton = driver.findElement(By.xpath(INPUT_DATA_TEST_CONTINUE));
         continueButton.click();
 
-        log.info("Assert Overview Page");
+        log("Assert Overview Page");
         assertCurrentPageUrl(OVERVIEW_PAGE_URL, driver.getCurrentUrl());
 
-        log.info("Assert Items");
+        log("Assert Items");
         assertItems();
     }
 
@@ -87,11 +87,11 @@ public class ProductTests extends BaseTestSetup {
         WebElement finishButton = driver.findElement(By.xpath(BUTTON_DATA_TEST_FINISH));
         finishButton.click();
 
-        log.info("Assert Checkout complete page");
+        log("Assert Checkout complete page");
         assertCurrentPageUrl(CHECKOUT_COMPLETE_HTML, driver.getCurrentUrl());
-        log.info("Assert No Items");
+        log("Assert No Items");
         assertNoItems();
-        log.info("Assert Complete Header Message");
+        log("Assert Complete Header Message");
         Assertions.assertEquals("Thank you for your order!",
                 driver.findElement(By.xpath(COMPLETE_HEADER)).getText(),
                 "Wrong complete header");
