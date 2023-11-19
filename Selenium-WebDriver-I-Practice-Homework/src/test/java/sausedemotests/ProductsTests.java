@@ -49,12 +49,7 @@ public class ProductsTests extends BaseTest {
         driver.findElement(By.id("checkout")).click();
 
         // fill form
-        WebElement firstNameInput = driver.findElement(By.xpath(FIRST_NAME));
-        firstNameInput.sendKeys("Yordan");
-        WebElement lastNameInput = driver.findElement(By.xpath(LAST_NAME));
-        lastNameInput.sendKeys("Nikolov");
-        WebElement postalCodeInput = driver.findElement(By.xpath(POSTAL_CODE));
-        postalCodeInput.sendKeys("7000");
+        fillDetailsForm();
 
         // Click on Continue
         WebElement continueButton = driver.findElement(By.xpath(CONTINUE_BUTTON));
