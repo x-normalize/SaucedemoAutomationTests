@@ -13,6 +13,7 @@ import java.time.Duration;
 import static basesetup.BaseTestSetup.fillDetailsForm;
 import static pages.CheckoutCompletePage.*;
 import static pages.Constants.*;
+import static utils.Constants.CHECKOUT_COMPLETE_HTML;
 
 public class ProductsTests extends BaseTest {
 
@@ -86,7 +87,7 @@ public class ProductsTests extends BaseTest {
         finishButton.click();
 
         // Assert Checkout complete page
-        assertCurrentPageUrl("https://www.saucedemo.com/checkout-complete.html", driver.getCurrentUrl());
+        assertCurrentPageUrl(CHECKOUT_COMPLETE_HTML, driver.getCurrentUrl());
 
         //Assert No Items
         assertNoItems();

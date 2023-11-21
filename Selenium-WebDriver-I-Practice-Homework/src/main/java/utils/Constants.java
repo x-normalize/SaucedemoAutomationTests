@@ -5,6 +5,7 @@ public class Constants {
     public static final String USER = "standard_user";
     public static final String PASSWORD = "secret_sauce";
     public static final String WWW_SAUCEDEMO_COM = "https://www.saucedemo.com/";
+
     public static final String INVENTORY_PAGE_URL = "https://www.saucedemo.com/inventory.html";
     public static final String SHOPPING_CART_PAGE_URL = "https://www.saucedemo.com/cart.html";
     public static final String USER_DETAILS_PAGE_URL = "https://www.saucedemo.com/checkout-step-one.html";
