@@ -1,4 +1,4 @@
-# Selenium-WebDriver-I-Practice-Homework
+# SaucedemoAutomationTests
 
 ## Automate the following scenarios in sausedemo application:
 
